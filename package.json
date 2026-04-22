@@ -5,8 +5,8 @@
   "main": "server.ts",
   "type": "module",
   "scripts": {
-    "build": "tsc",
-    "start": "node dist/server.js"
+    "build": "node init && tsc",
+    "start": "node init && node dist/server.js"
   },
   "keywords": [],
   "author": "",
@@ -15,7 +15,8 @@
     "@google/genai": "^1.50.1",
     "cors": "^2.8.6",
     "dotenv": "^17.4.2",
-    "express": "^5.2.1"
+    "express": "^5.2.1",
+    "node-fetch": "^3.3.2"
   },
   "repository": {
     "type": "git",
