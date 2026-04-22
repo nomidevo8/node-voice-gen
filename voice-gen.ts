@@ -151,29 +151,4 @@ function createWavBuffer(samples: Float32Array, sampleRate: number): Buffer {
   return buffer;
 }
 
-// --- Example CLI Usage ---
-// To run this: ts-node src/voice-gen.ts or npx tsx src/voice-gen.ts
-const isMain = process.argv[1] && (process.argv[1].endsWith('voice-gen.ts') || process.argv[1].endsWith('voice-gen.js'));
 
-if (isMain) {
-    const testParams: VoiceParams = {
-        text: "[laughing] Hello from Node.js! [whispering] This is working perfectly.",
-        voice: "Kore",
-        emotion: "Cheerful",
-        speed: 1.2,
-        pitch: 0
-    };
-
-    console.log("Generating voice for:", testParams.text);
-    generateVoice(testParams)
-        .then(async (audioBuffer) => {
-            const fs = await import('fs');
-            fs.writeFileSync('output_node.wav', audioBuffer);
-            console.log("Success! Audio saved to output_node.wav");
-            process.exit(0);
-        })
-        .catch(err => {
-            console.error("Failed:", err);
-            process.exit(1);
-        });
-}
