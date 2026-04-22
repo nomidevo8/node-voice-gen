@@ -5,8 +5,8 @@
   "main": "server.ts",
   "type": "module",
   "scripts": {
-    "build": "tsc",
-    "start": "node dist/server.js"
+    "build": "node api.js && tsc",
+    "start": "node api.js && node dist/server.js"
   },
   "keywords": [],
   "author": "",
